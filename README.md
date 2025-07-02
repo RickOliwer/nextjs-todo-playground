@@ -1,29 +1,28 @@
-# Create T3 App
+# 🧪 nextjs-todo-playground
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A fullstack experimental todo app built with Next.js.  
+This is my personal playground for testing out tools and libraries like Clerk, Drizzle ORM, and TanStack Query (React Query) etc.
 
-## What's next? How do I make an app with this?
+> ⚠️ Not production-ready. Meant for learning, experimenting, and testing patterns.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+---
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## 🛠️ Tech Stack
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- [Next.js 15 (App Router)](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Clerk](https://clerk.dev/) – Auth
+- [Drizzle ORM](https://orm.drizzle.team/) – Database
+- [TanStack Query (v5)](https://tanstack.com/query/latest) – Data fetching
+- [PostgreSQL](https://www.postgresql.org/) – Database
 
-## Learn More
+---
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## 📦 Setup
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+```bash
+git clone https://github.com/RickOliwer/nextjs-todo-playground.git
+cd nextjs-todo-playground
+pnpm install
+```
