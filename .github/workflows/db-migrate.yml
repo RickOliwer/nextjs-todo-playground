@@ -1,0 +1,30 @@
+name: Run Drizzle Migrations on Main
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "drizzle/**"
+      - "drizzle.config.ts"
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run Drizzle migrations
+        run: pnpm db:migrate
+        env:
+          # Make sure to add DATABASE_URL as a repository secret in GitHub
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
