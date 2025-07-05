@@ -25,7 +25,12 @@ jobs:
         run: pnpm install
 
       - name: Write .env file
-        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
+        run: |
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
+          echo "CLERK_SECRET_KEY=dummy" >> .env
+          echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=dummy" >> .env
 
       - name: Run Drizzle migrations
         run: pnpm db:migrate
+        env:
+          CI: true
