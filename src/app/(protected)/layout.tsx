@@ -1,6 +1,6 @@
 import { type Metadata } from "next";
 
-import Header from "@/components/ui/layout/header";
+import Header from "@/components/layout/header";
 
 export const metadata: Metadata = {
   title: "Clerk Next.js Quickstart",
