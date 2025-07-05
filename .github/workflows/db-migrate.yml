@@ -6,6 +6,7 @@ on:
     paths:
       - "drizzle/**"
       - "drizzle.config.ts"
+  workflow_dispatch:
 
 jobs:
   migrate:
@@ -23,8 +24,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Write .env file
+        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
+
       - name: Run Drizzle migrations
         run: pnpm db:migrate
-        env:
-          # Make sure to add DATABASE_URL as a repository secret in GitHub
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
