@@ -5,6 +5,7 @@ import {
   UserButton,
   SignInButton,
   SignUpButton,
+  SignOutButton,
 } from "@clerk/nextjs";
 
 export default function Header() {
@@ -19,7 +20,7 @@ export default function Header() {
         </SignUpButton>
       </SignedOut>
       <SignedIn>
-        <UserButton />
+        <SignOutButton>sign out</SignOutButton>
       </SignedIn>
     </header>
   );

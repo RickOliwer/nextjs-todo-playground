@@ -2,7 +2,7 @@
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
 import { sql } from "drizzle-orm";
-import { index, pgTableCreator } from "drizzle-orm/pg-core";
+import { index, pgTableCreator, uniqueIndex } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
 /**
@@ -35,7 +35,7 @@ export const account = createTable("account", (d) => ({
   id: d.integer().primaryKey().generatedByDefaultAsIdentity(),
   name: d.varchar({ length: 256 }),
   email: d.varchar({ length: 256 }),
-  clerkId: d.varchar({ length: 256 }),
+  clerkId: d.varchar({ length: 256 }).notNull().unique(),
   imageUrl: d.varchar({ length: 256 }),
   createdAt: d
     .timestamp({ withTimezone: true })
