@@ -3,6 +3,7 @@ CREATE TABLE "todo-app_account" (
 	"name" varchar(256),
 	"email" varchar(256),
 	"clerkId" varchar(256),
+	"imageUrl" varchar(256),
 	"createdAt" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	"updatedAt" timestamp with time zone
 );
@@ -12,8 +13,10 @@ CREATE TABLE "todo-app_todos" (
 	"title" varchar(256),
 	"description" varchar(256),
 	"completed" boolean DEFAULT false,
+	"accountId" integer,
 	"createdAt" timestamp with time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
 	"updatedAt" timestamp with time zone
 );
 --> statement-breakpoint
+ALTER TABLE "todo-app_todos" ADD CONSTRAINT "todo-app_todos_accountId_todo-app_account_id_fk" FOREIGN KEY ("accountId") REFERENCES "public"."todo-app_account"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
 CREATE INDEX "title_idx" ON "todo-app_todos" USING btree ("title");

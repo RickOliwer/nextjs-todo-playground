@@ -1,5 +1,5 @@
 {
-  "id": "f27a89e2-b982-4865-992f-a7dd55c30ca2",
+  "id": "16b69564-a25e-47af-9ffc-fce35eab4484",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -39,6 +39,12 @@
         },
         "clerkId": {
           "name": "clerkId",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "imageUrl": {
+          "name": "imageUrl",
           "type": "varchar(256)",
           "primaryKey": false,
           "notNull": false
@@ -105,6 +111,12 @@
           "notNull": false,
           "default": false
         },
+        "accountId": {
+          "name": "accountId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
         "createdAt": {
           "name": "createdAt",
           "type": "timestamp with time zone",
@@ -136,7 +148,21 @@
           "with": {}
         }
       },
-      "foreignKeys": {},
+      "foreignKeys": {
+        "todo-app_todos_accountId_todo-app_account_id_fk": {
+          "name": "todo-app_todos_accountId_todo-app_account_id_fk",
+          "tableFrom": "todo-app_todos",
+          "tableTo": "todo-app_account",
+          "columnsFrom": [
+            "accountId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
       "policies": {},
