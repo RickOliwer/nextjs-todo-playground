@@ -32,3 +32,18 @@ export const verifySession = cache(async () => {
     clerkId: userId,
   };
 });
+
+export const getAccount = cache(async () => {
+  const session = await verifySession();
+
+  const data = await db.query.account.findFirst({
+    where: eq(account.clerkId, session.clerkId),
+    columns: {
+      id: true,
+      email: true,
+      clerkId: true,
+    },
+  });
+
+  return data;
+});
