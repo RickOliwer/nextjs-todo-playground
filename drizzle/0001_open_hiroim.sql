@@ -1,0 +1,1 @@
+ALTER TABLE "todo-app_todos" ADD COLUMN "priority" integer DEFAULT 0;

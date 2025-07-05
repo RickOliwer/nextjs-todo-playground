@@ -8,6 +8,13 @@
       "when": 1751713891929,
       "tag": "0000_chief_lady_ursula",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1751714556743,
+      "tag": "0001_open_hiroim",
+      "breakpoints": true
     }
   ]
 }

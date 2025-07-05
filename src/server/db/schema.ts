@@ -19,6 +19,7 @@ export const todos = createTable(
     id: d.integer().primaryKey().generatedByDefaultAsIdentity(),
     title: d.varchar({ length: 256 }),
     description: d.varchar({ length: 256 }),
+    priority: d.integer().default(0),
     completed: d.boolean().default(false),
     accountId: d.integer().references(() => account.id),
     createdAt: d
