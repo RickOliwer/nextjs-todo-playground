@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { useFormContext } from "@/components/form/hook/useAppForm";
 import { useStore } from "@tanstack/react-form";
