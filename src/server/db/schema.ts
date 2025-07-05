@@ -3,6 +3,7 @@
 
 import { sql } from "drizzle-orm";
 import { index, pgTableCreator } from "drizzle-orm/pg-core";
+import { relations } from "drizzle-orm";
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -19,6 +20,7 @@ export const todos = createTable(
     title: d.varchar({ length: 256 }),
     description: d.varchar({ length: 256 }),
     completed: d.boolean().default(false),
+    accountId: d.integer().references(() => account.id),
     createdAt: d
       .timestamp({ withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
@@ -33,9 +35,21 @@ export const account = createTable("account", (d) => ({
   name: d.varchar({ length: 256 }),
   email: d.varchar({ length: 256 }),
   clerkId: d.varchar({ length: 256 }),
+  imageUrl: d.varchar({ length: 256 }),
   createdAt: d
     .timestamp({ withTimezone: true })
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),
   updatedAt: d.timestamp({ withTimezone: true }).$onUpdate(() => new Date()),
+}));
+
+export const todosRelations = relations(todos, ({ one }) => ({
+  account: one(account, {
+    fields: [todos.accountId],
+    references: [account.id],
+  }),
+}));
+
+export const accountRelations = relations(account, ({ many }) => ({
+  todos: many(todos),
 }));
